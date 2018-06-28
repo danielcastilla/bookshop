@@ -7,13 +7,13 @@ class BookSpec extends WordSpec with Matchers{
 
   "Creating a Book" should {
     "thrown an IllegalArgumentException for a ISBN field void" in {
-      an[IAE] should be thrownBy Book("", "The Godfather", "Description", 15.00, Author("Mario", "Puzo"))
+      an[IAE] should be thrownBy Book("12323", BookInfo("The Godfather", "", 15.00), Author("Mario", "Puzo"))
     }
     "thrown an IllegalArgumentException for a Title or Description field void" in {
-      an[IAE] should be thrownBy Book("1234567890", "The Godfather", "", 15.00, Author("Mario", "Puzo"))
+      an[IAE] should be thrownBy Book("1234567890", BookInfo("The Godfather", "", 15.00), Author("Mario", "Puzo"))
     }
     "thrown an IllegalArgumentException for a Book with Author null" in {
-       an[IAE] should be thrownBy Book("1234567890", "The Godfather", "description", 15.00, null)
+       an[IAE] should be thrownBy Book("1234567890", BookInfo("The Godfather", "description", 15.00), null)
     }
   }
 

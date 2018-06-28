@@ -1,10 +1,9 @@
 package com.dancas
 
-case class Book(isbn: String, title: String, description: String, price: BigDecimal, author: Author) {
+case class Book(isbn: String, bookInfo: BookInfo, author: Author) {
 
-  require(isbn.isEmpty, "ISBN is a required field")
-  require(title.isEmpty && description.isEmpty, "A required field is empty")
-  require(author!=null, "Author is required")
-
+  require(isbn.size==10, "ISBN field is required")
+  require(author!=null, "Author field is required")
+  require(bookInfo!=null, "BookInfo is required")
 
 }
